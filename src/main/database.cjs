@@ -20,7 +20,6 @@ function createDataBase(path) {
     description VARCHAR(255),
     commissionType VARCHAR(255),
     acceptanseDate DATE,
-    deliveryDate DATE,
     state VARCHAR(255),
     folder VARCHAR(255)
   )`;
@@ -61,10 +60,9 @@ function addCommission(db, commission) {
       description,
       commissionType,
       acceptanseDate,
-      deliveryDate,
       state,
       folder)
-      VALUES(@id, @year, @client, @commissionCode, @description, @commissionType, @acceptanseDate, @deliveryDate, @state, @folder)`
+      VALUES(@id, @year, @client, @commissionCode, @description, @commissionType, @acceptanseDate, @state, @folder)`
 
   try {
     const insert = db.prepare(addCommissionQuery);
@@ -94,7 +92,6 @@ function updateCommission(db, updatedCommission) {
     description = @description,
     commissionType = @commissionType,
     acceptanseDate = @acceptanseDate,
-    deliveryDate = @deliveryDate,
     state = @state,
     folder = @folder
     WHERE id = @id`;

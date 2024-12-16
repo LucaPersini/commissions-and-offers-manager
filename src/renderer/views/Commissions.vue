@@ -30,10 +30,6 @@
           <div class="list-name">Data di accettazione</div>
           <div v-for="commission in commissionsToDisplay" class="item"> {{ commission.acceptanseDate }}</div>
         </div>
-        <div class="deliveryDate-list">
-          <div class="list-name">Data di consegna</div>
-          <div v-for="commission in commissionsToDisplay" class="item"> {{ commission.deliveryDate }}</div>
-        </div>
         <div class="state-list">
           <div class="list-name last-list">Stato</div>
           <div class="item" v-for="commission in commissionsToDisplay">
@@ -163,7 +159,7 @@ watch(folderToDisplay, (newFolderToDisplay) => {
 
 .commissions-list {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto;
   width: 100%;
 }
 
@@ -200,5 +196,10 @@ watch(folderToDisplay, (newFolderToDisplay) => {
 .commission-id:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.commission-id {
+  width: fit-content;
+  margin: auto;
 }
 </style>

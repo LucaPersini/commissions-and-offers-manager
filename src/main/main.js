@@ -219,7 +219,7 @@ ipcMain.handle('get-number-of-commissions-by-year', (event, year) => {
     const result = dbController.getNumberOfCommissionsByYear(db, year);
     return { success: true, data: result };
   } catch (err) {
-    return { success: false };
+    return { success: false, err };
   }
 })
 

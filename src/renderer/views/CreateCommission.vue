@@ -23,11 +23,9 @@
         </select>
         <div class="input-title">Data di accettazione</div>
         <input type="date" v-model="acceptanseDate">
-        <div class="input-title">Data di consegna prevista</div>
-        <input type="date" v-model="deliveryDate"> 
         <div class="input-title"><p class="select-folder-text" @click="selectSavingFolder">Seleziona cartella di salvataggio:</p> {{ savingFolder }} </div><br>
-        <div>{{ id }} - {{ commissionCode }} - {{ client }} - {{ description }}</div><br>
-        <div v-if="error" class="error-text">Compilare tutti i dati obbligatori</div><br>
+        <div>{{ id }} - {{ commissionCode }} - {{ client }} - {{ description }}</div>
+        <div v-if="error" class="error-text">Compilare tutti i dati obbligatori</div>
         <button class="save-btn" @click="saveCommission">Salva commessa</button>
       </div>
     </div>
@@ -47,7 +45,6 @@ let description = ref('');
 let commissionCode = ref('');
 let commissionType = ref('');
 let acceptanseDate = ref('');
-let deliveryDate = ref('');
 let state = 'Da iniziare';
 let savingFolder = ref('');
 let error = ref(false);
@@ -81,7 +78,6 @@ async function saveCommission() {
   commissionCode.value,
   commissionType.value,
   acceptanseDate.value,
-  deliveryDate.value,
   savingFolder.value
 ];
 
@@ -103,7 +99,6 @@ if(!error.value) {
     commissionCode: commissionCode.value,
     commissionType: commissionType.value,
     acceptanseDate: acceptanseDate.value,
-    deliveryDate: deliveryDate.value,
     state: state,
     folder: `${savingFolder.value}/${folderName}`
   }
